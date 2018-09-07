@@ -2,6 +2,10 @@
  * Super simple AJAX Promise helper.
  * Now with Comet support.
  * 
+ * @author  Kris Lux <mail@kilolima.dk>
+ * @version 1.1
+ * @license MIT
+ *//**
  * Does not support Internet Explorer at all, as it doesn't support Promises.
  * This can be fixed with a Promise polyfill.
  * Support: Edge 12+, Firefox 29+, Chrome 33+, Safari 7.1+, Android 4.4.4+, iOS Safari 8+.
@@ -24,10 +28,6 @@
  * @param   {number}   [options.cometPollRate]        // Milliseconds between checking stream for new data. Defaults to 100.
  * 
  * @return  {Promise}  Arg is XmlHttpRequest with added properties responseJSON (if JSON) and responseComet (if Comet).
- * 
- * @author  Kris Lux <mail@kilolima.dk>
- * @version 1.1
- * @license MIT
  */
 export default function ajax(options) {
     

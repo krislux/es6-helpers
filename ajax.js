@@ -1,6 +1,10 @@
 /**
  * Super simple AJAX Promise helper.
  * 
+ * @author  Kris Lux <mail@kilolima.dk>
+ * @version 1.0
+ * @license MIT
+ *//**
  * Does not support Internet Explorer at all, as it doesn't support Promises.
  * This can be fixed with a Promise polyfill.
  * Support: Edge 12+, Firefox 29+, Chrome 33+, Safari 7.1+, Android 4.4.4+, iOS Safari 8+.
@@ -10,14 +14,17 @@
  * or
  *      ajax({ url: 'file.json', method: 'post' }).then(xhr => { ... });
  * 
- * @param   {object}  options   {string} method, {string} url, {bool} async, {string} user, 
- *                              {string} password, {object} headers, {string} contentType
- *                              Alternatively options can be a URL string if no other options needed.
- * @return  Promise => XmlHttpRequest
- *
- * @author  Kris Lux <mail@kilolima.dk>
- * @version 1.0
- * @license MIT
+ * @param   {(object|string)}   options               // If string this is the url, if object see below.
+ * @param   {string}   [options.method]               // HTTP method to use, defaults to GET.
+ * @param   {string}   [options.url]                  // Any valid url to call.
+ * @param   {(object|FormData|string)} [options.data] // Body data for POST etc.
+ * @param   {object}   [options.headers]              // Custom headers in {name:value} format.
+ * @param   {string}   [options.contentType]          // Shorthand for Content-Type header.
+ * @param   {boolean}  [options.async]                // Defaults to true, pass false to block execution.
+ * @param   {string}   [options.user]                 // Authentication username.
+ * @param   {string}   [options.password]             // Authentication password.
+ * 
+ * @return  {Promise}  Arg is XmlHttpRequest with added properties responseJSON (if JSON).
  */
 export default function ajax(options) {
     
