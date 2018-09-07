@@ -24,7 +24,8 @@
  * @param   {number}   [options.cometPollRate]        // Milliseconds between checking stream for new data. Defaults to 100.
  * 
  * @return  {Promise}  Arg is XmlHttpRequest with added properties responseJSON (if JSON) and responseComet (if Comet).
- * 
+ */
+/*!
  * @author  Kris Lux <mail@kilolima.dk>
  * @version 1.1
  * @license MIT
