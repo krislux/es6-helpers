@@ -71,12 +71,16 @@ export default function ajax(options) {
         /**
          * Set headers, including shorthand for setting the Content-Type header.
          */
-        if (typeof options.headers === 'undefined') options.headers = {};
-        if (options.contentType) {
+        if (typeof options.headers === 'undefined') options.headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        };
+        if (typeof options.contentType !== 'undefined') {
             options.headers['Content-Type'] = options.contentType;
         }
         Object.keys(options.headers || {}).forEach(key => {
-            xhr.setRequestHeader(key, options.headers[key]);
+            if (options.headers[key]) {
+                xhr.setRequestHeader(key, options.headers[key]);
+            }
         });
 
         /**
