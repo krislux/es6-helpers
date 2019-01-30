@@ -65,7 +65,7 @@ export default function ajax(options) {
             options.url,
             options.async    || true,
             options.user     || null,
-            options.password || null,
+            options.password || null
         );
         
         /**
