@@ -37,7 +37,7 @@ export default function ajax(options) {
         xhr.addEventListener('readystatechange', function() {
             if (this.readyState === 4) {
                 if (this.status >= 200 && this.status <= 299) {
-                    if (this.getResponseHeader('Content-Type') == 'application/json') {
+                    if (/^application\/json/.test(this.getResponseHeader('Content-Type'))) {
                         this.responseJSON = JSON.parse(this.response);
                     }
                     resolve(this);
@@ -74,7 +74,7 @@ export default function ajax(options) {
         /**
          * If Content-Type is set to JSON, stringify data objects.
          */
-        if (typeof options.data == 'object' && options.headers['Content-Type'] == 'application/json') {
+        if (typeof options.data == 'object' && /^application\/json/.test(options.headers['Content-Type'])) {
             options.data = JSON.stringify(options.data);
         }
 
